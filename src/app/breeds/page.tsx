@@ -1,11 +1,21 @@
-import type { Metadata } from "next";
 import BreedList from "../../components/BreedList";
 import { fetchDogBreeds, fetchCatBreeds } from "../api/api";
 
 async function getBreeds() {
   const dogBreeds = await fetchDogBreeds();
   const catBreeds = await fetchCatBreeds();
-  return [...dogBreeds, ...catBreeds];
+
+  const combinedBreeds = [...dogBreeds, ...catBreeds];
+
+  for (let i = combinedBreeds.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [combinedBreeds[i], combinedBreeds[j]] = [
+      combinedBreeds[j],
+      combinedBreeds[i],
+    ];
+  }
+
+  return combinedBreeds;
 }
 
 export default async function BreedsPage() {
