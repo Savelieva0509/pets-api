@@ -82,12 +82,12 @@ export async function fetchBreedDetails(
       name: breedData.name || "Unknown",
       desc: breedData.description || "No description available",
       images: imagesData.map((image: any) => image.url),
-      weight: breedData.weight ? breedData.weight.metric : "N/A",
-      height: breedData.height ? breedData.height.metric : "N/A",
-      bredFor: breedData.bred_for || "N/A",
-      breedGroup: breedData.breed_group || "N/A",
-      lifeSpan: breedData.life_span || "N/A",
-      temperament: breedData.temperament || "N/A",
+      weight: breedData.weight ? breedData.weight.metric : "not specified",
+      height: breedData.height ? breedData.height.metric : "not specified",
+      bredFor: breedData.bred_for || "not specified",
+      breedGroup: breedData.breed_group || "not specified",
+      lifeSpan: breedData.life_span || "not specified",
+      temperament: breedData.temperament || "not specified",
       wiki: breedData.wikipedia_url || null,
     };
   } catch (error) {
