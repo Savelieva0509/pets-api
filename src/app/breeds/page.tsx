@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import BreedList from "../../components/BreedList";
 import { fetchDogBreeds, fetchCatBreeds } from "../api/api";
 

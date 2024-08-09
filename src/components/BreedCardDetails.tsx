@@ -8,17 +8,22 @@ const BreedCardDetails: React.FC<{ breedDetails: BreedDetails }> = ({
   return (
     <div className="max-w-4xl mx-auto p-4 border border-gray-300 rounded-lg shadow-md">
       <h1 className="text-4xl font-bold mb-4">{breedDetails.name}</h1>
-      {breedDetails.images.map((imageUrl, index) => (
-        <div key={index} className="relative w-full h-96 mb-4">
-          <Image
-            src={imageUrl}
-            alt={breedDetails.name}
-            layout="fill"
-            objectFit="cover"
-            className="rounded-xl shadow-md"
-          />
-        </div>
-      ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {breedDetails.images.map((imageUrl, index) => (
+          <div key={index} className="relative w-full h-64 md:h-96">
+            <Image
+              src={imageUrl}
+                    alt={breedDetails.name}
+                    width={200}
+                    height={200}
+              //fill
+              //style={{ objectFit: "cover" }}
+              className="rounded-xl shadow-md"
+            />
+          </div>
+        ))}
+      </div>
+
       <p className="text-lg mb-2">
         <strong>Description:</strong> {breedDetails.desc}
       </p>
@@ -54,6 +59,7 @@ const BreedCardDetails: React.FC<{ breedDetails: BreedDetails }> = ({
       )}
     </div>
   );
+
 };
 
 export default BreedCardDetails;
