@@ -4,10 +4,10 @@ import "./globals.css";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 
-
 export const metadata: Metadata = {
   title: "Pet Breed Explorer",
-  description: "Explore various breeds of cats and dogs, with detailed information about each breed.",
+  description:
+    "Explore various breeds of cats and dogs, with detailed information about each breed.",
 };
 
 export default function RootLayout({
