@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Breed } from "../types";
 import BreedList from "./BreedList";
 import Loader from "./Loader";
@@ -11,29 +11,26 @@ interface SearchFormProps {
 
 const SearchForm: React.FC<SearchFormProps> = ({ breeds }) => {
   const [query, setQuery] = useState<string>("");
-    const [filteredBreeds, setFilteredBreeds] = useState<Breed[]>(breeds);
-    const [loading, setLoading] = useState<boolean>(true);
+  const [filteredBreeds, setFilteredBreeds] = useState<Breed[]>(breeds);
+  const [loading, setLoading] = useState<boolean>(true);
 
+  useEffect(() => {
+    setLoading(true);
+    if (query) {
+      setFilteredBreeds(
+        breeds.filter((breed) =>
+          breed.name.toLowerCase().includes(query.toLowerCase())
+        )
+      );
+    } else {
+      setFilteredBreeds(breeds);
+    }
+    setLoading(false);
+  }, [query, breeds]);
 
-
-    useEffect(() => {
-      setLoading(true);
-      // Filter breeds based on the query
-      if (query) {
-        setFilteredBreeds(
-          breeds.filter((breed) =>
-            breed.name.toLowerCase().includes(query.toLowerCase())
-          )
-        );
-      } else {
-        setFilteredBreeds(breeds);
-      }
-      setLoading(false);
-    }, [query, breeds]);
-
-    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setQuery(e.target.value);
-    };
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+  };
 
   return (
     <>

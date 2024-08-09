@@ -1,8 +1,6 @@
 import axios from "axios";
 import { Breed, BreedDetails } from "../../types";
 
-type BreedType = "dog" | "cat";
-
 export const fetchDogBreeds = async (): Promise<Breed[]> => {
   try {
     const response = await axios.get("https://api.thedogapi.com/v1/breeds", {

@@ -1,4 +1,3 @@
-import React from "react";
 import { Breed } from "../types";
 import BreedCard from "./BreedCard";
 
