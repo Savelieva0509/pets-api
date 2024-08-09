@@ -6,7 +6,7 @@ import { Breed } from "../types";
 const BreedCard: React.FC<Breed> = ({ id, name, imageUrl, type }) => {
   return (
     <Link href={`/breeds/${type}/${id}`}>
-      <div className="cursor-pointer bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="cursor-pointer bg-white rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105 hover:shadow-lg">
         <div className="relative w-full h-60">
           <Image
             src={imageUrl}

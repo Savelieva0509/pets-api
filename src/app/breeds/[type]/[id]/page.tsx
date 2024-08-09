@@ -11,7 +11,6 @@ interface BreedDetailsProps {
 
 export default async function BreedDetailsPage({ params }: BreedDetailsProps) {
   const breed = await fetchBreedDetails(params.type, params.id);
-  console.log(breed);
 
   if (!breed) {
     notFound();
