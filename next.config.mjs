@@ -1,5 +1,5 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+// next.config.mjs
+export default {
   images: {
     remotePatterns: [
       {
@@ -16,6 +16,13 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/breeds",
+        permanent: true,
+      },
+    ];
+  },
 };
-
-export default nextConfig;
